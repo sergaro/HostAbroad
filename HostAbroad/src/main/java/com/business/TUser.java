@@ -1,4 +1,4 @@
-package business.search;
+package com.business;
 
 public class TUser {
 	private String nickname;

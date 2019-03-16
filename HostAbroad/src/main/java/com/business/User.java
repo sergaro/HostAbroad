@@ -1,4 +1,4 @@
-package business.search;
+package com.business;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
