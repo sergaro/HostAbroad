@@ -2,6 +2,8 @@ package com.business.ASSearch;
 
 public interface ASSearch {
 	
-	public abstract TUser searchHost(String nickname);
+	public abstract TUser searchHostByName(String nickname);
+	
+	public abstract List<TUser> searchHost();
 
 }
