@@ -11,8 +11,6 @@ import javax.persistence.Query;
 
 public class ASSearchImp implements ASSearch {
 	
-	
-
 	@Override
 	public TUser searchHostByName(String nickname) {
 		TUser tUser = new TUser();
