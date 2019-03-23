@@ -34,7 +34,6 @@ public class ASUserImp implements ASUser {
 			}
 			
 			if (user != null){
-				tr.rollback();
 				em.close();
 				emf.close();
 				return false;
