@@ -15,6 +15,8 @@ public class ASUserImp implements ASUser {
 	@Override
 	public boolean createUser(TUser tUser) {
 		
+		boolean result =  false;
+		
 		try {
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("HostAbroad");
 			EntityManager em = emf.createEntityManager();
@@ -26,6 +28,7 @@ public class ASUserImp implements ASUser {
 			query.setParameter("nickname", tUser.getNickname());
 
 			User user = null;
+			
 			try {
 				user =  (User) query.getSingleResult();
 			}
@@ -36,7 +39,7 @@ public class ASUserImp implements ASUser {
 			if (user != null){
 				em.close();
 				emf.close();
-				return false;
+				return result;
 			}
 			
 			else {
@@ -46,6 +49,7 @@ public class ASUserImp implements ASUser {
 						false,
 						false);
 				em.persist(user);
+				result = true;
 			}
 			em.close();
 			emf.close();
@@ -54,7 +58,7 @@ public class ASUserImp implements ASUser {
 			System.out.println(ex.getMessage());
 		}		
 		
-		return true;
+		return result;
 	}
 
 }
