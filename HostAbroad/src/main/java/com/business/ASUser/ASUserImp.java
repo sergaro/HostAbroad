@@ -35,19 +35,13 @@ public class ASUserImp implements ASUser {
 			catch (NoResultException ex) {
 				System.out.println(ex.getMessage());
 			}
-			
-			if (user != null){
-				em.close();
-				emf.close();
-				return result;
-			}
-			
-			else {
+		
+			if (user == null){
 				user = new User (tUser.getNickname(),
 						tUser.getRating(),
 						tUser.getDescription(),
-						false,
-						false);
+						tUser.getHost(),
+						tUser.getTraveler());
 				em.persist(user);
 				result = true;
 			}
